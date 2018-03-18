@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="{{ url_for('static', filename='css/start.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="container">  
+  <form id="contact" action="{{url_for('chatbot')}}" method="post" style="width: auto;">
+    <h3>Quick Contact</h3>
+    <fieldset>
+    <label for="name">Name:</label>
+      <input placeholder="Your name" name="name" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+    <label for="email">Email:</label>
+      <input placeholder="Your Email Address" name='email' type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+    	<div class="form-group">
+    	<div class="form-group" style="display: inline-block;">
+      <label for="sel1">Support Category:</label>
+      <select class="form-control" name="sel1" style="width:auto;" class="form-control selectWidth">
+        <option>Tracking</option>
+        <option>Receiving Package</option>
+        <option>Sending a Package</option>
+        <option>Billing</option>
+        <option>General</option>
+      </select>
+      </div>
+      <div class="form-group" style="display: inline-block;">
+      <label for="sel2">Support Topic:</label>
+      <select class="form-control" name="sel2" style="width:auto;" class="form-control selectWidth">
+        <option>Tracking Information</option>
+        <option>Package Delivery</option>
+        <option>Reference number</option>
+      </select>
+      </div>
+      <div class="form-group" style="display: inline-block;">
+      <label for="sel3">Are you:</label>
+      <select class="form-control" name="sel3" style="width:auto;" class="form-control selectWidth">
+        <option>Shipper</option>
+        <option>Consignee</option>
+      </select>
+      </div>
+    </div>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+ 
+  
+</div>
+</body>
+</html>
