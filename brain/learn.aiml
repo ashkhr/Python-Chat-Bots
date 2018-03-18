@@ -1,0 +1,94 @@
+<aiml version="1.0.1" encoding="UTF-8">
+<!-- basic_chat.aiml -->
+
+    <category>
+        <pattern>HII</pattern>
+        <template>
+            Well, hello!
+        </template>
+    </category>
+    <category>
+        <pattern>HI</pattern>
+        <template>
+            Well, hello!
+        </template>
+    </category>
+    <category>
+        <pattern>HEY</pattern>
+        <template>
+            Well, hello!
+        </template>
+    </category>
+    
+    <category>
+        <pattern>HOW ARE YOU</pattern>
+        <template>
+            I am fine. How are you?
+        </template>
+    </category>
+    
+    <category>
+    <pattern>FINE</pattern>
+    <template>
+        <random>
+            <li>Great</li>
+            <li>Okay</li>
+            <li>Good</li>
+        </random>
+    </template>
+</category>
+
+    <category>
+    <pattern>I AM FINE</pattern>
+    <template>
+        <random>
+            <li>Great</li>
+            <li>Okay</li>
+            <li>Good</li>
+        </random>
+    </template>
+</category>
+    <category>
+    <pattern>GOOD</pattern>
+    <template>
+        <random>
+            <li>Great</li>
+            <li>Okay</li>
+            <li>Good</li>
+        </random>
+    </template>
+</category>
+
+    <category>
+    <pattern>I AM GOOD</pattern>
+    <template>
+        <random>
+            <li>Great</li>
+            <li>Okay</li>
+            <li>Good</li>
+        </random>
+    </template>
+</category>
+
+<category>
+    <pattern>I'M FINE</pattern>
+    <template>
+        <random>
+            <li>Great</li>
+            <li>Okay</li>
+            <li>Good</li>
+        </random>
+    </template>
+</category>
+<category>
+    <pattern>I'M GOOD</pattern>
+    <template>
+        <random>
+            <li>Great</li>
+            <li>Okay</li>
+            <li>Good</li>
+        </random>
+    </template>
+</category>   
+   
+</aiml>
