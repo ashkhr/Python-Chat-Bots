@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Allergan Chatbot Demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/jquery-ui.css') }}">
+
+</head>
+<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+<style>
+    #draggable1 {
+        cursor: move;
+    }
+    
+    body {
+        background-image: url('../static/images/Allergan_Background.png');
+	    -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+    
+    #minMaxButton {
+        cursor: pointer;
+    }
+    
+    #alme-chat-history {
+        overflow-y: scroll;
+        height: 100%;
+    }
+    #alme-input-button{
+        background-color: rgba(215, 65, 8, 0.61);
+    }
+    #alme-input-button:hover{
+        background-color: #D74108;
+    }
+    #alme-wrap .alme-text a{
+       color:  #337ab7;
+       /*text-transform: lowercase;*/
+    }
+</style>
+
+<body style="padding: 0%;" id="body">
+    
+    
+    
+    
+    
+    <header class="_demo--heading">
+
+    </header>
+
+    
+    <h2 class="base--h2">
+			<!--Try the service-->
+		</h2>
+        
+    <div id="alme-wrap" class="dockable ui-resizable ui-draggable ui-draggable-handle" style="width: 320px; height: 460px; right: 0px; display: block; bottom: 0px;">
+        <div id="inset-shadow"></div>
+        <div id="alme-content-wrap">
+            <div id="alme-header">
+                <div class="alme-header-text">Allergan Assistant
+		</div>
+                <ul>
+
+                    <li>
+                        <span id="minMaxButton" class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+                        <!--<a id="alme-to-dockable" class="ui-dock-out button " title="Go to dockable">---</a>-->
+                    </li>
+
+                </ul>
+            </div>
+            <!-- #alme-header -->
+            <div id="alme-body" style="height: 323px;">
+                <div id="alme-chat-history" style="position: absolute;">
+                    <div  id="botReplyDiv" class="chat-input">
+                        <div class="ui-alme-avatar alme-avatar"></div>
+                        <div class="alme-text" data-revision="1">
+                            <div class="ui-alme-carrot carrot"></div>
+                            <p>
+                           <!--<img src="{{ url_for('static', filename='images/icons/Allergan_Sym.png') }}" class="chat-box--avatar-img">-->
+                            <label id='greet'></label></p>
+                            <!--How may I help you-->
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div id="userInputDiv" class="chat-input" style="display:none">
+                        <div class="ui-user-avatar user-avatar"></div>
+                        <div class="user-text" data-revision="1">
+                            <div class="ui-user-carrot carrot"></div>
+                            <p>
+                            
+                             </p>
+                        </div>
+                    </div>
+                    <div class="loader" style="display:none">
+							<div class="loader--fallback"><img src="{{ url_for('static', filename='images/watson.gif') }}" width="50" alt=""></div>
+						</div>
+                </div>
+                <!-- #chat-history -->
+            </div>
+            <!-- .alme-body -->
+        </div>
+        <!-- #alme-content-wrap -->
+        <div id="alme-footer">
+            <!--div id="alme-avatar"></div-->
+            <div id="alme-input-label">Your Question</div>
+            <div id="alme-input-section">
+                <!--<div class="alme-input-warning">Credit Card numbers cannot be submitted to Jenn</div>-->
+                <form id="alme-input-form" >
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tbody>
+                            <tr>
+                                <td id="table-input">
+                                    <div class="alme-input-wrap">
+                                        <div class="alme-input">
+                                            <input label="Type your question here." id="alme-input-field" type="text" placeholder="Type your question here." autocomplete="off"
+                                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'Type your question here.'"
+                                            aria-labelledby="alme-input-label"> </div>
+                                        <!-- .alme-input -->
+                                    </div>
+                                    <!-- .alme-input-wrap -->
+                                </td>
+                                <td class="alme-input-button-wrap"> <a onclick="javascript: converse('');" label="Send your question" type="submit" id="alme-input-button" tabindex="0">Send</a>                                    </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <!-- #alme-input-section-->
+        </div>
+        
+    </div>
+
+    <!-- Property template -->
+    <div class="data--variable hidden">
+        <span class="data--variable-title"></span>
+        <span class="data--variable-value"></span>
+    </div>
+    </article>
+    </div>
+
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-ui.min.js') }}"></script>
+    <!--<script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js" integrity="sha256-xI/qyl9vpwWFOXz7+x/9WkG5j/SVnSw21viy8fWwbeE="
+    crossorigin="anonymous"></script>-->
+    <script type="text/javascript" src="{{ url_for('static', filename='js/demo.js') }}"></script>
+    
+    <script>
+        $( "#alme-wrap" ).draggable({
+ 
+  
+   scroll: false,
+   handle: "#alme-header",
+   scroll: false
+});
+// $( "#alme-body" ).resizable({
+//     containment: "parent"
+// });
+$("#minMaxButton").click(function() {    
+    
+    // if((this).className.indexOf(("glyphicon-menu-up")) > -1)
+    // botMaximize();
+    // else
+    // botMinimize();
+    //     $( this ).toggleClass( "glyphicon-menu-up" );
+}); 
+function botMinimize(){
+    $("#alme-body").hide();
+    $("#alme-footer").hide();
+}
+ function botMaximize(){
+    $("#alme-body").show();
+    $("#alme-footer").show();
+}
+
+
+
+    var myDate = new Date();
+    var hrs = myDate.getHours();
+
+    var greet;
+
+    if (hrs < 12)
+        greet = 'Good Morning';
+    else if (hrs >= 12 && hrs <= 17)
+        greet = 'Good Afternoon';
+    else if (hrs >= 17 && hrs <= 24)
+        greet = 'Good Evening';
+
+    document.getElementById('greet').innerHTML ='<b>' + greet + '</b>, {{name|safe}}! How may I help you?';
+
+    history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+
+
+    </script>
+</body>
+
+</html>

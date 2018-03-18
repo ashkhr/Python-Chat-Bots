@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link href="{{ url_for('static', filename='css/start.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="container">  
+  <form id="contact" action="{{url_for('chatbot')}}" method="post" style="width: auto;">
+    <h3>Allergan Customer Portal</h3>
+    <fieldset>
+    <label for="name">Contact Name</label>
+      <input placeholder="Your name" name="name" type="text" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+    <label for="email">Account Name</label>
+      <input placeholder="Your account name" name='email' type="text" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+    	<div class="form-group">
+    	<div class="form-group" style="display: inline-block;">
+  
+      </div>
+      <div class="form-group" style="display: inline-block;">
+      <label for="sel2">Business Unit</label>
+      <select class="form-control" name="sel2" style="width:auto;" class="form-control selectWidth">
+        <option>Ophthalmology</option>
+        <option>Specialty Care</option>
+        <option>Medical Aesthetics</option>
+      </select>
+      </div>
+      <div class="form-group" style="display: inline-block;">
+      <label for="sel3">Sales Rep Requester:</label>
+      <select class="form-control" name="sel3" style="width:auto;" class="form-control selectWidth">
+        <option>Agnieszka Zielinska</option>
+          <option>Angela Walker</option>
+        </select>
+      </div>
+    </div>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
+    </fieldset>
+  </form>
+ 
+  
+</div>
+</body>
+</html>
